@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Madera</title>
+
+    <!-- build:cssvendor assets/css/vendor.min.css -->
+    <link rel="stylesheet" href="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="../node_modules/angularjs-toaster/toaster.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!-- endbuild -->
+
+    <!-- build:cssapp assets/css/app.min.css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- endbuild -->
+
+</head>
+
+<body ng-app="app" ng-strict-di>
+<web-app></web-app>
+
+
+<!-- build:jsvendor assets/js/vendor.min.js -->
+<script src=../node_modules/angular/angular.js></script>
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../node_modules/angular-logger/dist/angular-logger.min.js"></script>
+<script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="../node_modules/angular-resource/angular-resource.min.js"></script>
+<script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+<script src="../node_modules/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+<script src="../node_modules/angularjs-toaster/toaster.min.js"></script>
+<script src="../node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<script src="../node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+<!-- build:jsapp assets/js/app.min.js -->
+<script src="ngConstants.js"></script>
+<!-- inject:js -->
+<script src="app/app.js"></script>
+<script src="app/app.config.js"></script>
+<script src="app/app.run.js"></script>
+<script src="app/common/common.module.js"></script>
+<script src="app/layout/layout.module.js"></script>
+<script src="app/modules/cors.module.js"></script>
+<script src="app/common/component/component.module.js"></script>
+<script src="app/common/service/service.module.js"></script>
+<script src="app/layout/breadcrumb/breadcrumb.module.js"></script>
+<script src="app/layout/footer/footer.module.js"></script>
+<script src="app/layout/header/header.module.js"></script>
+<script src="app/layout/sidebar/sidebar.module.js"></script>
+<script src="app/modules/components/components.module.js"></script>
+<script src="app/modules/customers/customers.module.js"></script>
+<script src="app/modules/extensions/extensions.module.js"></script>
+<script src="app/modules/home/home.module.js"></script>
+<script src="app/modules/login/login.module.js"></script>
+<script src="app/modules/profile/profile.module.js"></script>
+<script src="app/modules/projects/projects.module.js"></script>
+<script src="app/modules/ranges/ranges.module.js"></script>
+<script src="app/modules/stocks/stocks.module.js"></script>
+<script src="app/modules/suppliers/suppliers.module.js"></script>
+<script src="app/modules/webApp/webApp.module.js"></script>
+<script src="app/modules/users/users.module.js"></script>
+<script src="app/common/component/buttonGlobal/buttonGlobal.module.js"></script>
+<script src="app/common/component/inputGlobal/inputGlobal.module.js"></script>
+<script src="app/common/service/checkInput.service.js"></script>
+<script src="app/common/service/httpInterceptor.service.js"></script>
+<script src="app/common/service/logger.service.js"></script>
+<script src="app/common/service/notification.service.js"></script>
+<script src="app/common/service/resource.service.js"></script>
+<script src="app/common/service/rest.service.js"></script>
+<script src="app/layout/breadcrumb/breadcrumb.component.js"></script>
+<script src="app/layout/footer/footer.component.js"></script>
+<script src="app/layout/header/header.component.js"></script>
+<script src="app/layout/sidebar/sidebar.component.js"></script>
+<script src="app/modules/components/components.component.js"></script>
+<script src="app/modules/customers/customers.component.js"></script>
+<script src="app/modules/extensions/extensions.component.js"></script>
+<script src="app/modules/home/home.component.js"></script>
+<script src="app/modules/login/login.component.js"></script>
+<script src="app/modules/profile/profile.service.js"></script>
+<script src="app/modules/profile/profile.component.js"></script>
+<script src="app/modules/projects/projects.component.js"></script>
+<script src="app/modules/ranges/ranges.component.js"></script>
+<script src="app/modules/stocks/stocks.component.js"></script>
+<script src="app/modules/suppliers/suppliers.component.js"></script>
+<script src="app/modules/webApp/webApp.component.js"></script>
+<script src="app/modules/users/users.component.js"></script>
+<script src="app/common/component/buttonGlobal/buttonGlobal.component.js"></script>
+<script src="app/common/component/inputGlobal/inputGlobal.component.js"></script>
+<script src="app/modules/components/table/table.component.js"></script>
+<script src="app/modules/components/title/title.component.js"></script>
+<script src="app/modules/customers/table/table.component.js"></script>
+<script src="app/modules/customers/title/title.component.js"></script>
+<script src="app/modules/extensions/table/table.component.js"></script>
+<script src="app/modules/extensions/title/title.component.js"></script>
+<script src="app/modules/home/directory/directory.component.js"></script>
+<script src="app/modules/home/message/message.component.js"></script>
+<script src="app/modules/home/stats/stats.component.js"></script>
+<script src="app/modules/home/title/title.component.js"></script>
+<script src="app/modules/profile/panel/panel.component.js"></script>
+<script src="app/modules/profile/title/title.component.js"></script>
+<script src="app/modules/projects/form/form.component.js"></script>
+<script src="app/modules/projects/table/table.component.js"></script>
+<script src="app/modules/projects/title/title.component.js"></script>
+<script src="app/modules/ranges/table/table.component.js"></script>
+<script src="app/modules/ranges/title/title.component.js"></script>
+<script src="app/modules/stocks/table/table.component.js"></script>
+<script src="app/modules/stocks/title/title.component.js"></script>
+<script src="app/modules/suppliers/form/form.component.js"></script>
+<script src="app/modules/suppliers/table/table.component.js"></script>
+<script src="app/modules/suppliers/title/title.component.js"></script>
+<script src="app/modules/users/form/form.component.js"></script>
+<script src="app/modules/users/table/table.component.js"></script>
+<script src="app/modules/users/title/title.component.js"></script>
+<!-- endinject -->
+
+<!-- endbuild -->
+
+</body>
+</html>

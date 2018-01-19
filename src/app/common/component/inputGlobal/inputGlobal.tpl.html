@@ -1,0 +1,7 @@
+<div class="{{$ctrl.inputClass}}">
+    <div class="form-group" ng-class="{ 'has-error has-feedback' : $ctrl.inputControl.$submitted && $ctrl.inputControl['{{$ctrl.inputName}}'].$invalid}">
+        <label class="control-label" for="{{$ctrl.inputName}}">{{$ctrl.inputLabel}}</label>
+        <div class="{{$ctrl.inputLine}}" ng-transclude=""></div>
+        <span ng-show="$ctrl.inputControl.$submitted && $ctrl.inputControl['{{$ctrl.inputName}}'].$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+    </div>
+</div>
