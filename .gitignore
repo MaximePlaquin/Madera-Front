@@ -2,3 +2,6 @@
 .idea/
 .idea/*
 .idea
+# Ignore les nodes modules
+/node_modules
+node_modules
