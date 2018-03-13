@@ -7,7 +7,7 @@ module.exports = function (app) {
         , formidable = require('formidable');
 
     //Gestion de l'authentification
-    app.route('/api/authenticate')
+    app.route('/rest/authenticate')
         .post(function (req, res) {
             var user = {
                 username: 'madera'
