@@ -56,6 +56,7 @@
          * @param data
          */
         function UpdateProfile(data) {
+            console.log(data);
             return restProfile.Update(data);
         }
 

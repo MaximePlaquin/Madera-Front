@@ -11,7 +11,7 @@
     function config($stateProvider) {
         $stateProvider
             .state('login', {
-                url: '/',
+                url: '/login',
                 template: '<login></login>',
                 ncyBreadcrumb: {
                     label: 'Accueil'

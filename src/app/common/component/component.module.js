@@ -8,7 +8,8 @@
      */
     angular.module('app.common.component', [
         'app.common.component.buttonGlobal',
-        'app.common.component.inputGlobal'
+        'app.common.component.inputGlobal',
+        'app.common.component.tableGlobal'
     ]);
 
 

@@ -1,0 +1,50 @@
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <h1 class="main-title pull-left">Gestion des modules</h1>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+                <button class="btn btn-default" ui-sref="extensions">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-accordion" heading="Informations Module">
+            <div class="panel-body">
+                <h3 class="panel-title pull-left">Informations</h3>
+                <br><br>
+                <form name="form_extensiondetail" novalidate>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Identifiant" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.identifiant" name="identifiant" placeholder="Identifiant" value="identifiant" ng-required="true"/>
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.lastname" name="lastname" placeholder="Nom" value="lastname" ng-required="true"/>
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="firstname" input-label="Prénom" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.firstname" name="firstname" placeholder="Prénom" value="firstname" ng-required="true"/>
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="service" input-label="Service" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.service" name="service" placeholder="Service" value="service" ng-required="true"/>
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="post" input-label="Poste" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.post" name="post" placeholder="Poste" value="post" />
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Email" input-control="form_extensiondetail">
+                        <input type="text"  class="form-control" ng-model="$ctrl.extension.mail" name="mail" placeholder="Email" value="mail" ng-required="true"/>
+                    </input-global>
+                    <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="password" input-label="Mot de passe" input-control="form_extensiondetail">
+                        <input type="password"  class="form-control" ng-model="$ctrl.extension.password" name="password" placeholder="Mot de passe" value="password" />
+                    </input-global>
+                    <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                        <button-global btn-class="btn btn-default" btn-function="$ctrl.reset()" btn-name="Réinitialiser"></button-global>
+                        <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.extension)" btn-name="Valider"></button-global>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-accordion" heading="Composants Module">
+            <p> test</p>
+        </div>
+    </uib-accordion>
+</div>

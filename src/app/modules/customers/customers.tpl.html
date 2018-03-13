@@ -1,4 +1,11 @@
 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
     <title-customers></title-customers>
-    <table-customers></table-customers>
+    <div class="row">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <table-customers edit-customer="$ctrl.editCustomer" ></table-customers>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <form-customers customer="$ctrl.customer" ></form-customers>
+        </div>
+    </div>
 </div>

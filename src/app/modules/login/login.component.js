@@ -11,6 +11,13 @@
     function loginCtrl() {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        $ctrl.login = login();
+
+        function login() {
+
+
+        }
     }
 
     angular.module('app.cors.login')

@@ -2,11 +2,27 @@
     <div class="panel-body">
         <h3 class="panel-title pull-left">Liste des modules</h3>
         <br><br>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris odio, pulvinar sit amet augue et,
-               elementum accumsan est. Aliquam et nisi eu dui vestibulum pulvinar. Nullam non metus non ligula feugiat fermentum.
-               Nullam volutpat feugiat rhoncus. Pellentesque congue massa vel nibh porttitor, sit amet pulvinar elit viverra.
-               Maecenas eget eros nulla. Duis sit amet volutpat velit, vel auctor eros. Pellentesque varius nec tortor a egestas.
-               Integer orci risus, vestibulum quis odio a, maximus consectetur leo. Ut hendrerit tempus nibh, at consequat nulla.
-            </span>
+        <table-global tab-col-class="col-md-12"
+                      tab-title="" tab-resource="$ctrl.listExtensions"
+                      tab-filters="$ctrl.filters" tab-filters-show="'yes'">
+            <div tasty-table="" watch-resource="collection" bind-resource="$ctrl.listExtensions"
+                 bind-filters="$ctrl.filters">
+                <table class="table table-striped table-condensed ">
+                    <thead tasty-thead="" class="table-head"></thead>
+                    <tbody>
+                    <tr ng-repeat="row in rows">
+                        <td>{{row.id}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.price}}</td>
+                        <td>{{row.nature}}</td>
+                        <td>{{row.range}}</td>
+                        <td><a class="btn btn-primary btn-xs" ui-sref="detailExtensions({ extensionId : row.id })">Modifier</a></td>
+                        <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.id)" >Supprimer</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div tasty-pagination="" items-per-page="20" bind-template-url="$ctrl.pagination"></div>
+            </div>
+        </table-global>
     </div>
 </div>

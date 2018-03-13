@@ -9,6 +9,7 @@
         'ngMessages',
         'ngFileUpload',
         'toaster',
+        'ngTasty',
         'ncy-angular-breadcrumb',
         'app.constant',
         'app.cors',

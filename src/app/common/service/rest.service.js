@@ -126,9 +126,6 @@
          */
         RestService.prototype.Update = function (data) {
             var options = isNumeric(data) ? {id: data} : data;
-            /*if (!this.id) {
-             throw new Error('L\'objet doit avoir un identifiant');
-             }*/
 
             var deferred = $q.defer();
             this.resource.update(options, function (response) {
@@ -156,12 +153,9 @@
              }*/
 
             var deferred = $q.defer();
-            console.log(options);
             this.resource.delete(options, function (resp) {
                 deferred.resolve(resp);
-                console.log(resp);
             }, function (reason) {
-                console.log(reason);
                 deferred.reject(reason);
             });
             return deferred.promise;

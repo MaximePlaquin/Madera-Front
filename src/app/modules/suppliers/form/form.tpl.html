@@ -1,12 +1,36 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3 class="panel-title pull-left">Fournisseur</h3>
+        <div ng-switch="$ctrl.supplier.id">
+            <h3 class="panel-title pull-left" ng-switch-when="undefined">Ajout fournisseur</h3>
+            <h3 class="panel-title pull-left" ng-switch-default >Mise a jour fournisseur</h3>
+        </div>
         <br><br>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris odio, pulvinar sit amet augue et,
-               elementum accumsan est. Aliquam et nisi eu dui vestibulum pulvinar. Nullam non metus non ligula feugiat fermentum.
-               Nullam volutpat feugiat rhoncus. Pellentesque congue massa vel nibh porttitor, sit amet pulvinar elit viverra.
-               Maecenas eget eros nulla. Duis sit amet volutpat velit, vel auctor eros. Pellentesque varius nec tortor a egestas.
-               Integer orci risus, vestibulum quis odio a, maximus consectetur leo. Ut hendrerit tempus nibh, at consequat nulla.
-            </span>
+        <form name="$ctrl.form_supplier" novalidate>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Référence fournisseur" input-control="form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.identifiant" name="identifiant" placeholder="Référence fournisseur" value="identifiant" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="name" input-label="Raison sociale" input-control="form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.name" name="name" placeholder="Raison sociale" value="name" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="siren" input-label="Siren" input-control="form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.siren" name="siren" placeholder="Siren" value="siren" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="phone" input-label="Téléphone" input-control="form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.phone" name="phone" placeholder="Téléphone" value="phone" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="address" input-label="Adresse" input-control="form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.address" name="address" placeholder="Adresse" value="address" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-4 col-md-4 col-sm-4 col-xs-4" input-name="zipcode" input-label="Code postal" input-control="form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.zipcode" name="zipcode" placeholder="CP" value="zipcode" />
+            </input-global>
+            <input-global  input-class="col-lg-8 col-md-8 col-sm-8 col-xs-8" input-name="city" input-label="Ville" input-control="form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.city" name="city" placeholder="Ville" value="city" />
+            </input-global>
+            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.reset()" btn-name="Réinitialiser"></button-global>
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.user)" btn-name="Valider"></button-global>
+            </div>
+        </form>
     </div>
 </div>

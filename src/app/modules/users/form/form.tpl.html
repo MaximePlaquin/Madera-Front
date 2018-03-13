@@ -1,12 +1,39 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3 class="panel-title pull-left">Utilisateur</h3>
+        <div ng-switch="$ctrl.user.id">
+            <h3 class="panel-title pull-left" ng-switch-when="undefined">Ajout Utilisateur</h3>
+            <h3 class="panel-title pull-left" ng-switch-default >Mise a jour Utilisateur</h3>
+        </div>
         <br><br>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris odio, pulvinar sit amet augue et,
-               elementum accumsan est. Aliquam et nisi eu dui vestibulum pulvinar. Nullam non metus non ligula feugiat fermentum.
-               Nullam volutpat feugiat rhoncus. Pellentesque congue massa vel nibh porttitor, sit amet pulvinar elit viverra.
-               Maecenas eget eros nulla. Duis sit amet volutpat velit, vel auctor eros. Pellentesque varius nec tortor a egestas.
-               Integer orci risus, vestibulum quis odio a, maximus consectetur leo. Ut hendrerit tempus nibh, at consequat nulla.
-            </span>
+        <form name="$ctrl.form_user" novalidate>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="id" input-label="ID" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.id" name="id" value="id" ng-disabled="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Identifiant" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.identifiant" name="identifiant" placeholder="Identifiant" value="identifiant" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.lastname" name="lastname" placeholder="Nom" value="lastname" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="firstname" input-label="Prénom" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.firstname" name="firstname" placeholder="Prénom" value="firstname" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="service" input-label="Service" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.service" name="service" placeholder="Service" value="service" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="post" input-label="Poste" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.post" name="post" placeholder="Poste" value="post" />
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Email" input-control="form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.mail" name="mail" placeholder="Email" value="mail" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="password" input-label="Mot de passe" input-control="form_user">
+                <input type="password"  class="form-control" ng-model="$ctrl.user.password" name="password" placeholder="Mot de passe" value="password" />
+            </input-global>
+            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.reset()" btn-name="Réinitialiser"></button-global>
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.user)" btn-name="Valider"></button-global>
+            </div>
+        </form>
     </div>
 </div>

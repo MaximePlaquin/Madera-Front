@@ -8,10 +8,34 @@
      *
      */
     /* @ngInject */
-    function rangesCtrl() {
+    function rangesCtrl(rangesService, loggerService) {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        /**
+         * @ngdoc property
+         * @name app.cors.ranges.formRangesCtrl#editRange
+         * @description appel fonction recuperer valeur gamme
+         *
+         */
+        $ctrl.editRange = getRange;
+
+        /**
+         * @ngdoc function
+         * @name app.cors.ranges.rangesCtrl#getRanges
+         * @description recupere les valeurs du gamme
+         *
+         */
+        function getRange(value){
+            rangesService.GetRanges(value).then(function success(response) {
+                $ctrl.range = response;
+            }, function error(error) {
+                loggerService.error('ranges - get ',error);
+            });
+        }
     }
+
+    rangesCtrl.$inject = ['rangesService', 'loggerService'];
 
     angular.module('app.cors.ranges')
         .component('ranges', {
