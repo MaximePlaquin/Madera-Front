@@ -5,6 +5,9 @@
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams){
 
+            // Initilisation connexion si bug login mettre en commentaire
+            $localStorage.isAuthenticated  = false;
+
             function getValue(){
                 return $localStorage.isAuthenticated;
             }
