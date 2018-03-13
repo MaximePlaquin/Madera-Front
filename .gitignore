@@ -1,0 +1,4 @@
+# Ignorer le répertoire ''cache'' :
+.idea/
+.idea/*
+.idea
