@@ -17,6 +17,9 @@
         'app.cors.ranges',
         'app.cors.components',
         'app.cors.extensions',
-        'app.cors.login'
+        'app.cors.customers',
+        'app.cors.login',
+        'app.cors.projectsDetail'
+
     ]);
 })(angular);

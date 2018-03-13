@@ -11,6 +11,8 @@
     function titleCustomersCtrl() {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        $ctrl.title = "Gestion des clients";
     }
 
     angular.module('app.cors.customers')

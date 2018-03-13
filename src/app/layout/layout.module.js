@@ -10,6 +10,7 @@
         'app.layout.sidebar',
         'app.layout.header',
         'app.layout.footer',
-        'app.layout.breadcrumb'
+        'app.layout.breadcrumb',
+        'app.layout.notification'
     ]);
 })(angular);

@@ -1,12 +1,29 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3 class="panel-title pull-left">Liste des fournisseurs</h3>
+        <h3 class="panel-title pull-left">Liste des projets</h3>
         <br><br>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris odio, pulvinar sit amet augue et,
-               elementum accumsan est. Aliquam et nisi eu dui vestibulum pulvinar. Nullam non metus non ligula feugiat fermentum.
-               Nullam volutpat feugiat rhoncus. Pellentesque congue massa vel nibh porttitor, sit amet pulvinar elit viverra.
-               Maecenas eget eros nulla. Duis sit amet volutpat velit, vel auctor eros. Pellentesque varius nec tortor a egestas.
-               Integer orci risus, vestibulum quis odio a, maximus consectetur leo. Ut hendrerit tempus nibh, at consequat nulla.
-            </span>
+        <table-global tab-col-class="col-md-12"
+                      tab-title="" tab-resource="$ctrl.listProjects"
+                      tab-filters="$ctrl.filters" tab-filters-show="'yes'">
+            <div tasty-table="" watch-resource="collection" bind-resource="$ctrl.listProjects"
+                 bind-filters="$ctrl.filters">
+                <table class="table table-striped table-condensed ">
+                    <thead tasty-thead="" class="table-head"></thead>
+                    <tbody>
+                    <tr ng-repeat="row in rows">
+                        <td>x</td>
+                        <td>{{row.id}}</td>
+                        <td>{{row.idClient}}</td>
+                        <td>{{row.status}}</td>
+                        <td>{{row.step}}</td>
+                        <td>{{row.date}}</td>
+                        <td><a ui-sref="projectsDetail({id: row.id})" class="btn btn-primary btn-xs" data-title="Edit">Modifier</a></td>
+                        <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.id)" >Supprimer</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div tasty-pagination="" items-per-page="20" bind-template-url="$ctrl.pagination"></div>
+            </div>
+        </table-global>
     </div>
 </div>

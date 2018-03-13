@@ -23,11 +23,11 @@ module.exports = function (app) {
             });
             if (req.body.username === user.username && req.body.password === user.password) {
                 res.status(200).json({
-                    token: token
+                    authorisation: true
                 });
                 console.log('ok');
             } else {
-                res.status(204).json({});
+                res.status(204).json({authorisation: false});
                 console.log('no');
             }
         });

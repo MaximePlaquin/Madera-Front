@@ -17,6 +17,25 @@
                     label: 'Modules',
                     parent:'home'
                 }
+            })
+            .state('detailExtensions', {
+                url: '/modules/detail/{extensionId}',
+                template: '<detail-extensions extension-binding="$ctrl.extensionBinding"></detail-extensions>',
+                ncyBreadcrumb: {
+                    label: 'Detail',
+                    parent:'extensions'
+                },
+                controllerAs: '$ctrl',
+                resolve : {
+                    extensionBinding: function (extensionsService, $stateParams) {
+                        return extensionsService.GetExtensions($stateParams.extensionId).then(function success(response) {
+                            return response;
+                        }, function error(error) {
+
+                        });
+                    }
+
+                }
             });
     }
 

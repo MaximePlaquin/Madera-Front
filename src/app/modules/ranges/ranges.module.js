@@ -17,7 +17,7 @@
                     label: 'Gammes',
                     parent:'home'
                 }
-            });
+        });
     }
 
     /**

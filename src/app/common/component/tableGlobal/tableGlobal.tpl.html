@@ -1,0 +1,18 @@
+<!-- Structure entete tableau -->
+<div>
+    <div ng-if="$ctrl.tabFiltersShow === 'yes'">
+        <div class="col-md-8 tasty-title"><h3 class=" tasty-title--h3">{{$ctrl.tabTitle}}</h3></div>
+        <div class="col-md-4 tasty-search">
+            <div  placeholder="test" ng-model="$ctrl.tabFilters"></div>
+        </div>
+    </div>
+    <div ng-else>
+    </div>
+</div>
+<div class="row">
+    <div class="{{$ctrl.tabColClass}}" tasty-table="" bind-resource="$ctrl.tabResource"
+         bind-filters="$ctrl.tabFilters">
+        <div ng-transclude=""></div>
+    </div>
+</div>
+</div>

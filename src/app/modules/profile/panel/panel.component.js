@@ -5,10 +5,14 @@
      * @ngdoc controller
      * @name app.cors.profile.panelProfileCtrl
      * @desc Controleur du component panel
+     * @param usersService
+     * @param loggerService
+     * @param notificationService
+     * @param checkInputService
      *
      */
     /* @ngInject */
-    function panelProfileCtrl(profileService, loggerService) {
+    function panelProfileCtrl(profileService, loggerService, notificationService, checkInputService) {
         /*jshint validthis : true*/
         var $ctrl = this;
 
@@ -21,12 +25,32 @@
         getProfile();
 
         /**
-         * @ngdoc function
+         * @ngdoc method
          * @name app.cors.profile.panelProfileCtrl#edit
-         * @description appel fonction mise a jour
+         * @description controle avant mise a jour
          *
          */
-        $ctrl.edit = editProfile;
+        $ctrl.edit = checkForm;
+
+        /**
+         * @ngdoc function
+         * @name app.cors.profile.panelProfileCtrl#checkForm
+         * @description controle avant mise a jour
+         * @param value
+         */
+        function checkForm(value){
+            if(!checkInputService.isUndefinedOrNull(value)) {
+                editProfile(value)
+            }
+        }
+
+        /**
+         * @ngdoc method
+         * @name app.cors.profile.panelProfileCtrl#reset
+         * @description recuperation valeur d'origine
+         *
+         */
+        $ctrl.reset = getProfile;
 
         /**
          * @ngdoc function
@@ -57,7 +81,7 @@
         }
     }
 
-    panelProfileCtrl.$inject=['profileService', 'loggerService'];
+    panelProfileCtrl.$inject=['profileService', 'loggerService', 'notificationService', 'checkInputService'];
 
     angular.module('app.cors.profile')
         .component('panelProfile', {

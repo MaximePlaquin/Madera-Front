@@ -26,6 +26,7 @@
          */
         function isUndefinedOrNull(value){
             return angular.isUndefined(value) || value === null  || value === 'null' || value === {};
+
         }
 
     }
