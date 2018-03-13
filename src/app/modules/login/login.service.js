@@ -10,7 +10,7 @@
      * @requires app.common.service.restService
      **/
     /* @ngInject */
-    function loginService(BASE, restService) {
+    function loginService(BASE, restService, $localStorage) {
 
         /**
          * @ngdoc property
@@ -31,7 +31,8 @@
         var restLogin = new restService(url);
 
         var service = {
-            PostLogin: PostLogin
+            PostLogin: PostLogin,
+            isLogout: isLogout
         };
 
         /**
@@ -45,10 +46,14 @@
             return restLogin.Create(data);
         }
 
+        function isLogout() {
+            delete $localStorage.currentUser;
+        }
+
         return service;
     }
 
-    loginService.$inject = ['BASE', 'restService'];
+    loginService.$inject = ['BASE', 'restService', '$localStorage'];
 
     angular
         .module('app.cors.login')

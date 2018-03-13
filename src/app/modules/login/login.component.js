@@ -8,7 +8,7 @@
      *
      */
     /* @ngInject */
-    function loginCtrl(loggerService, loginService, $state, toaster) {
+    function loginCtrl(loggerService, loginService, $state, toaster, $localStorage) {
         /*jshint validthis : true*/
         var $ctrl = this;
 
@@ -22,10 +22,8 @@
          *
          */
         function initController() {
-            // status login
-            loggerService.logout();
-        };
-
+            $localStorage.isAuthenticated  = false;
+        }
 
         /**
          * @ngdoc function
@@ -42,9 +40,10 @@
 
             loginService.PostLogin(login).then(function success(response) {
                 if( response.authorisation === true ) {
+                    $localStorage.isAuthenticated  = true;
                     $state.go('home');
                 } else {
-                        toaster.pop('error', "", "Identifiant ou/et Mot de passe incorrect(s)");
+                    toaster.pop('error', '', 'Identifiant ou/et Mot de passe incorrect(s)');
                 }
                 $ctrl.loading = false;
             }, function error(error) {
@@ -54,7 +53,7 @@
         }
     }
 
-    loginCtrl.$inject = ['loggerService', 'loginService', '$state', 'toaster'];
+    loginCtrl.$inject = ['loggerService', 'loginService', '$state', 'toaster', '$localStorage'];
 
     angular.module('app.cors.login')
         .component('login', {

@@ -7,6 +7,7 @@
         'angular-logger',
         'ngResource',
         'ngMessages',
+        'ngStorage',
         'ngFileUpload',
         'toaster',
         'ngTasty',

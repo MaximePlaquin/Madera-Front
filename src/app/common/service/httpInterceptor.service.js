@@ -35,7 +35,7 @@
                 $rootScope.loading = false;
                 if (response && response.status >= 300) {
                     //NotificationService.error('HTTP ' + response.status);
-                    // loggerService.error('httpInterceptor - response',response);
+                    loggerService.error('httpInterceptor - response',response);
                 }
                 return $q.reject(response);
             }

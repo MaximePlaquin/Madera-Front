@@ -8,10 +8,23 @@
      *
      */
     /* @ngInject */
-    function sidebarCtrl() {
+    function sidebarCtrl($localStorage, $scope, $timeout) {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        function getValue(){
+            return $localStorage.isAuthenticated;
+        }
+
+        $scope.$watch(getValue, function(newValue){
+                $timeout(function(){
+                    $ctrl.isAuthenticated = newValue;
+                });
+        });
+
     }
+
+    sidebarCtrl.$inject = ['$localStorage', '$scope', '$timeout'];
 
     angular.module('app.layout.sidebar')
         .component('layoutSidebar', {

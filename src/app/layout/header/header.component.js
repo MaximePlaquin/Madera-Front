@@ -8,9 +8,19 @@
      *
      */
     /* @ngInject */
-    function headerCtrl() {
+    function headerCtrl($localStorage, $scope, $timeout) {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        function getValue(){
+            return $localStorage.isAuthenticated;
+        }
+
+        $scope.$watch(getValue, function(newValue){
+            $timeout(function(){
+                $ctrl.isAuthenticated = newValue;
+            });
+        });
 
         $ctrl.user = {
             firstName : 'Guy',
@@ -19,6 +29,8 @@
             isAdmin: 'true'
         };
     }
+
+    headerCtrl.$inject = ['$localStorage', '$scope', '$timeout'];
 
     angular.module('app.layout.header')
         .component('layoutHeader', {
