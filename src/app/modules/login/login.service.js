@@ -19,7 +19,7 @@
          * @description Initialise url backend
          *
          */
-        var url = BASE.url + 'login';
+        var url = BASE.url + 'authenticate';
 
         /**
          * @ngdoc property
