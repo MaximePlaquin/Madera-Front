@@ -3,6 +3,7 @@
 
     function  config($httpProvider, logEnhancerProvider, $compileProvider, $logProvider, $locationProvider){
 
+
         $locationProvider.html5Mode(false);
 
         $logProvider.debugEnabled(true);
