@@ -31,7 +31,12 @@
         var restProjects = new restService(url);
 
         var service = {
-            GetAllProjects: GetAllProjects
+            GetAllProjects: GetAllProjects,
+            GetProjects: GetProjects,
+            DeleteProjects: DeleteProjects,
+            CreateProjects: CreateProjects,
+            EditProjects: EditProjects
+
         };
 
         /**
@@ -43,6 +48,22 @@
          */
         function GetAllProjects() {
             return restProjects.GetAll();
+        }
+
+        function GetProjects(data) {
+            return restProjects.Get(data);
+        }
+
+        function DeleteProjects(data) {
+            return restProjects.Delete(data);
+        }
+
+        function EditProjects(data) {
+            return restProjects.Update(data);
+        }
+
+        function CreateProjects(data) {
+            return restProjects.Create(data);
         }
 
         return service;

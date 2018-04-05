@@ -1,5 +1,30 @@
 <div class="panel panel-default vertical-align">
     <div class="panel-body">
         <h1 class="main-title pull-left">Informations</h1>
+        <br><br>
+        <div class="panel-body">
+            <div ng-switch="$ctrl.customer.id">
+                <h3 class="panel-title pull-left" ng-switch-when="undefined">Ajout Informations</h3>
+                <h3 class="panel-title pull-left" ng-switch-default >Mise a jour Informations</h3>
+            </div>
+        <br><br>
+                    <form name="$ctrl.project_info" novalidate>
+                        <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Référence projet" input-control="project_info">
+                            <input type="text"  class="form-control" ng-model="$ctrl.project.id" name="identifiant" placeholder="Référence projet" value="identifiant" ng-required="true"/>
+                        </input-global>
+                        <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Status" input-control="project_info">
+                            <input type="text"  class="form-control" ng-model="$ctrl.project.status" name="status" placeholder="Status" value="status" ng-required="true"/>
+                        </input-global>
+                        <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Etape" input-control="project_info">
+                            <input type="text"  class="form-control" ng-model="$ctrl.project.step" name="etape" placeholder="Etape" value="etape" ng-required="true"/>
+                        </input-global>
+                        <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Date" input-control="project_info">
+                            <input type="text"  class="form-control" ng-model="$ctrl.project.date" name="date" placeholder="01/01/2018..." value="date" ng-required="true"/>
+                        </input-global>
+                        <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                           <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.user)" btn-name="Valider"></button-global>
+                        </div>
+                    </form>
+            </div>
     </div>
 </div>

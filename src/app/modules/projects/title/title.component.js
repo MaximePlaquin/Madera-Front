@@ -11,6 +11,7 @@
     function titleProjectsCtrl() {
         /*jshint validthis : true*/
         var $ctrl = this;
+
     }
 
     angular.module('app.cors.projects')
