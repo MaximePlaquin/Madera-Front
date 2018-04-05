@@ -21,7 +21,6 @@
          *
          */
         $ctrl.send = send;
-        $ctrl.infosProject;
 
         /**
          * @ngdoc function
@@ -74,6 +73,9 @@
     angular.module('app.cors.projectsDetail')
         .component('projectsInformations', {
             templateUrl: 'app/modules/projects/detail/informations/informations.tpl.html',
-            controller: projectsInformationsCtrl
+            controller: projectsInformationsCtrl,
+            bindings: {
+                infosProjects: '='
+            }
         });
 })(angular);

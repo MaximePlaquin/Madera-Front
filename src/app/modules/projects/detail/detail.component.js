@@ -36,6 +36,9 @@
     angular.module('app.cors.projectsDetail')
         .component('projectsDetail', {
             templateUrl: 'app/modules/projects/detail/detail.tpl.html',
-            controller: projectsDetailCtrl
+            controller: projectsDetailCtrl,
+            bindings: {
+                infosProjects: '='
+            }
         });
 })(angular);
