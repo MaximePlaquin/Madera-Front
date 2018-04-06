@@ -1,5 +1,30 @@
-<div class="panel panel-default vertical-align">
+<div class="panel panel-default">
     <div class="panel-body">
-        <h1 class="main-title pull-left">Client</h1>
+        <h3 class="panel-title pull-left">Liste des clients</h3>
+        <br><br>
+        <table-global tab-col-class="col-md-12"
+                      tab-title="" tab-resource="$ctrl.listCustomers"
+                      tab-filters="$ctrl.filters" tab-filters-show="'yes'">
+            <div tasty-table="" watch-resource="collection" bind-resource="$ctrl.listCustomers"
+                 bind-filters="$ctrl.filters">
+                <table class="table table-striped table-condensed ">
+                    <thead tasty-thead="" class="table-head"></thead>
+                    <tbody>
+                    <tr>
+                    <td><select>
+                        <option ng-repeat="row in rows">{{row.lastname}}</option>
+                    </select></td>
+
+                        <td >{{row.id}}</td>
+                        <td>{{row.firstname}}</td>
+
+                        <td><a ui-sref="customers({id: row.id})" class="btn btn-primary btn-xs" data-title="Edit">Consulter</a></td>
+                        <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.send(row.id)" >Ajouter</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div tasty-pagination="" items-per-page="20" bind-template-url="$ctrl.pagination"></div>
+            </div>
+        </table-global>
     </div>
 </div>
