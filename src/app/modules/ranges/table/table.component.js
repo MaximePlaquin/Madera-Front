@@ -102,10 +102,24 @@
          */
         function deleteRanges(value){
             rangesService.DeleteRanges(value).then(function success() {
+                deleteRangesArray(value);
             }, function error(error) {
                 loggerService.error('Ranges - delete ',error);
             });
         }
+        function deleteRangesArray(value) {
+            var index = -1;
+            var array = $ctrl.listRanges.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listRanges.rows.splice( index, 1 );
+        }
+
+
     }
 
     tableRangesCtrl.$inject = ['rangesService', 'notificationService', 'loggerService', 'checkInputService'];

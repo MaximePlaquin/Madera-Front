@@ -37,7 +37,6 @@
                 { 'id': 'Référence' },
                 { 'name': 'Libellé' },
                 { 'price': 'Tarif' },
-                { 'nature': 'Nature' },
                 { 'range': 'Gamme' },
                 { 'edit': 'Modifier' },
                 { 'delete': 'Supprimer' }
@@ -83,7 +82,7 @@
                 loggerService.error('extensions - table ',error);
             });
         }
-
+        $ctrl.edit = $ctrl.editExtension;
         /**
          * @ngdoc function
          * @name app.cors.extensions.tableExtensionsCtrl##deleteExtensions
@@ -93,17 +92,34 @@
          */
         function deleteExtensions(value){
             extensionsService.DeleteExtensions(value).then(function success() {
+                deleteExtensionsArray(value);
             }, function error(error) {
                 loggerService.error('Extensions - delete ',error);
             });
         }
+        function deleteExtensionsArray(value) {
+            var index = -1;
+            var array = $ctrl.listExtensions.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listExtensions.rows.splice( index, 1 );
+        }
+
+
     }
 
     tableExtensionsCtrl.$inject = ['extensionsService', 'notificationService', 'loggerService', 'checkInputService'];
-    
+
     angular.module('app.cors.extensions')
         .component('tableExtensions', {
             templateUrl: 'app/modules/extensions/table/table.tpl.html',
-            controller: tableExtensionsCtrl
+            controller: tableExtensionsCtrl,
+            bindings: {
+                editExtension: '='
+            }
         });
 })(angular);

@@ -1,9 +1,9 @@
 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
     <uib-tabset active="activeJustified" justified="true">
-        <uib-tab index="0" heading="Projet"><projects-informations></projects-informations></uib-tab>
-        <uib-tab index="1" heading="Client"><projects-customers></projects-customers></uib-tab>
-        <uib-tab index="2" heading="Plans"><projects-plans></projects-plans></uib-tab>
-        <uib-tab index="3" heading="Devis"><projects-bills></projects-bills></uib-tab>
-        <uib-tab index="4" heading="Paiement"><projects-payment></projects-payment></uib-tab>
+        <uib-tab index="0" heading="Projet"><projects-informations id-project="$ctrl.idProject" infos-project="$ctrl.infosProject"></projects-informations></uib-tab>
+        <uib-tab index="1" heading="Client"><projects-customers id-project="$ctrl.idProject" customer="$ctrl.customer"></projects-customers></uib-tab>
+        <uib-tab index="2" heading="Plans"><projects-plans id-project="$ctrl.idProject" infos-project="$ctrl.infosProject"></projects-plans></uib-tab>
+        <uib-tab index="3" heading="Devis"><projects-bills id-project="$ctrl.idProject" infos-project="$ctrl.infosProject" customer="$ctrl.customer"></projects-bills></uib-tab>
+        <!-- <uib-tab index="4" heading="Paiement"><projects-payment></projects-payment></uib-tab> -->
     </uib-tabset>
 </div>

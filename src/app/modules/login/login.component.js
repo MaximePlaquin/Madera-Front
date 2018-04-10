@@ -34,13 +34,14 @@
             $ctrl.loading = true;
             // construction objet connexion form
             var login = {
-                username :$ctrl.username,
+                mail :$ctrl.username,
                 password: $ctrl.password
             };
 
             loginService.PostLogin(login).then(function success(response) {
-                if( response.authorisation === true ) {
+                if( response.authentification.authentification === true ) {
                     $localStorage.isAuthenticated  = true;
+                    $localStorage.infosUser = response.authentification;
                     $state.go('home');
                 } else {
                     toaster.pop('error', '', 'Identifiant ou/et Mot de passe incorrect(s)');

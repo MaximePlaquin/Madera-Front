@@ -8,10 +8,12 @@
      *
      */
     /* @ngInject */
-    function webAppCtrl() {
+    function webAppCtrl($localStorage) {
         /*jshint validthis : true*/
         var $ctrl = this;
     }
+
+    webAppCtrl.$inject = ['$localStorage'];
 
     angular.module('app.cors.webApp')
         .component('webApp', {

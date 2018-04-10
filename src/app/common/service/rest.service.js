@@ -114,6 +114,29 @@
             return deferred.promise;
         };
 
+
+
+        /**
+         * @ngdoc method
+         * @methodOf app.common.utils.restService
+         * @name app.common.utils.restService#Get
+         * @description Récupère une ressource particulière
+         * Methode GET,
+         *
+         * @param  data - Identifiant de la ressource ou objet
+         * @returns {*} promise resolvant la réponse du serveur
+         */
+        RestService.prototype.GetObject = function () {
+            var deferred = $q.defer();
+            this.resource.queryObject(function (response) {
+                deferred.resolve(response);
+            }, function (reason) {
+                deferred.reject(reason);
+            });
+            return deferred.promise;
+        };
+
+
         /**
          * @ngdoc method
          * @methodOf app.common.utils.restService
@@ -161,24 +184,14 @@
             return deferred.promise;
         };
 
-        /**
-         * @ngdoc method
-         * @name app.common.utils.restService#Getlist
-         * @description Service associé aux requetes
-         * Equivalent à GET AutoCompletion
-         * @methodOf app.common.utils.restService
-         * @return {promise}
-         *
-         **/
         RestService.prototype.GetList = function (data) {
             var options = isNumeric(data) ? {id: data} : data;
             var deferred = $q.defer();
-            this.resource.list(options,
-                function (response) {
-                    deferred.resolve(response);
-                }, function (error) {
-                    deferred.reject(error);
-                });
+            this.resource.query(options, function (response) {
+                deferred.resolve(response);
+            }, function (reason) {
+                deferred.reject(reason);
+            });
             return deferred.promise;
         };
 

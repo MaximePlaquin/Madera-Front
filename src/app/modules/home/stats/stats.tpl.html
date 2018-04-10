@@ -2,8 +2,21 @@
     <div class="panel-body">
         <h3 class="panel-title pull-left">Stats</h3>
         <br><br>
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mauris odio, pulvinar sit amet augue et,
-               elementum accumsan est. Aliquam et nisi eu dui vestibulum pulvinar. Nullam non metus non ligula feugiat fermentum.
-        </span>
+        <div class="text-center">
+            <div ang:chartjs:doughnut data-chartjs-width="250" data-chartjs-height="250" data-chartjs-segment-show-stroke="true" data-chartjs-model="$ctrl.datas"></div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Légende</h2>
+                    <div class='legend-scale'>
+                        <ul class='legend-labels'>
+                            <li><span class="a-faire"></span>A faire</li>
+                            <li><span class="en-cours"></span>En cours</li>
+                            <li><span class="termine"></span>Termine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

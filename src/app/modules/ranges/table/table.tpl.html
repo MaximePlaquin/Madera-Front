@@ -11,12 +11,12 @@
                     <thead tasty-thead="" class="table-head"></thead>
                     <tbody>
                     <tr ng-repeat="row in rows">
-                        <td>{{row.id}}</td>
-                        <td>{{row.name}}</td>
-                        <td>{{row.outdoor}}</td>
-                        <td>{{row.insulating}}</td>
-                        <td>{{row.roofting}}</td>
-                        <td>{{row.windowFrame}}</td>
+                        <td>{{row.reference}}</td>
+                        <td>{{row.libelle}}</td>
+                        <td>{{row.type_finition_exterieur}}</td>
+                        <td>{{row.type_isolant}}</td>
+                        <td>{{row.type_couverture}}</td>
+                        <td>{{row.type_huisserie}}</td>
                         <td><button class="btn btn-primary btn-xs" data-title="Edit" ng-click="$ctrl.edit(row.id)" >Modifier</button></td>
                         <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.id)" >Supprimer</button></td>
                     </tr>

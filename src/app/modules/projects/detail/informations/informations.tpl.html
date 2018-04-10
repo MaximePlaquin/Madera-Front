@@ -3,3 +3,29 @@
         <h1 class="main-title pull-left">Informations</h1>
     </div>
 </div>
+
+<div class="panel panel-default vertical-align">
+    <div class="panel-body">
+        <form name="$ctrl.form_informations" novalidate>
+
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="dateCreation" input-label="Date création" input-control="$ctrl.form_informations">
+                <input type="text"  class="form-control" ng-model="$ctrl.infosProject.date_creation" name="dateCreation" placeholder="Date création" value="dateCreation" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="dateModification" input-label="Date modification" input-control="$ctrl.form_informations">
+                <input type="text"  class="form-control" ng-model="$ctrl.infosProject.date_modification" name="dateModification" placeholder="Date modification" value="dateModification" />
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="status" input-label="Satus" input-control="$ctrl.form_informations">
+                <input type="text"  class="form-control" ng-model="$ctrl.infosProject.statut" name="status" placeholder="Status" value="status" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="step" input-label="Étape" input-control="$ctrl.form_informations">
+                <input type="text"  class="form-control" ng-model="$ctrl.infosProject.etape" name="step" placeholder="Étape" value="step" />
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="comment" input-label="Commentaire" input-control="$ctrl.form_informations">
+                <textarea type="text"  class="form-control" ng-model="$ctrl.infosProject.commentaire" name="comment" placeholder="Commentaire" value="comment" height="50"></textarea>
+            </input-global>
+            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.infosProject)" btn-name="Valider"></button-global>
+            </div>
+        </form>
+    </div>
+</div>

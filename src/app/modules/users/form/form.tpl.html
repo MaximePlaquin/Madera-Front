@@ -6,28 +6,28 @@
         </div>
         <br><br>
         <form name="$ctrl.form_user" novalidate>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="id" input-label="ID" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="id" input-label="ID" input-control="$ctrl.form_user">
                 <input type="text"  class="form-control" ng-model="$ctrl.user.id" name="id" value="id" ng-disabled="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Identifiant" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Identifiant" input-control="$ctrl.form_user">
                 <input type="text"  class="form-control" ng-model="$ctrl.user.identifiant" name="identifiant" placeholder="Identifiant" value="identifiant" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" input-control="form_user">
-                <input type="text"  class="form-control" ng-model="$ctrl.user.lastname" name="lastname" placeholder="Nom" value="lastname" ng-required="true"/>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" input-control="$ctrl.form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.name" name="lastname" placeholder="Nom" value="lastname" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="firstname" input-label="Prénom" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="firstname" input-label="Prénom" input-control="$ctrl.form_user">
                 <input type="text"  class="form-control" ng-model="$ctrl.user.firstname" name="firstname" placeholder="Prénom" value="firstname" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="service" input-label="Service" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="service" input-label="Service" input-control="$ctrl.form_user">
                 <input type="text"  class="form-control" ng-model="$ctrl.user.service" name="service" placeholder="Service" value="service" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="post" input-label="Poste" input-control="form_user">
-                <input type="text"  class="form-control" ng-model="$ctrl.user.post" name="post" placeholder="Poste" value="post" />
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="post" input-label="Poste" input-control="$ctrl.form_user">
+                <input type="text"  class="form-control" ng-model="$ctrl.user.poste" name="post" placeholder="Poste" value="post" />
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Email" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Email" input-control="$ctrl.form_user">
                 <input type="text"  class="form-control" ng-model="$ctrl.user.mail" name="mail" placeholder="Email" value="mail" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="password" input-label="Mot de passe" input-control="form_user">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="password" input-label="Mot de passe" input-control="$ctrl.form_user">
                 <input type="password"  class="form-control" ng-model="$ctrl.user.password" name="password" placeholder="Mot de passe" value="password" />
             </input-global>
             <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">

@@ -23,13 +23,13 @@
          */
         $ctrl.listUsers = {
             'header': [
-                { 'id': 'Identifiant' },
+                { 'ID_employe': 'Identifiant' },
                 { 'name': 'Nom' },
                 { 'edit': 'Modifier' },
                 { 'delete': 'Supprimer' }
             ],
             'rows': [],
-            'sortBy': 'name',
+            'sortBy': 'Nom',
             'sortOrder': 'asc'
         };
 
@@ -98,20 +98,36 @@
          */
         function deleteUsers(value){
             usersService.DeleteUsers(value).then(function success() {
+                deleteUsersArray(value);
+
             }, function error(error) {
                 loggerService.error('users - delete ',error);
             });
         }
+        function deleteUsersArray(value) {
+            var index = -1;
+            var array = $ctrl.listUsers.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listUsers.rows.splice( index, 1 );
+        }
     }
 
     tableUsersCtrl.$inject = ['usersService', 'loggerService'];
+
+
 
     angular.module('app.cors.users')
         .component('tableUsers', {
             templateUrl: 'app/modules/users/table/table.tpl.html',
             controller: tableUsersCtrl,
             bindings:{
-                editUser: '='
+                editUser: '=',
+                listUsers: '=',
             }
         });
 })(angular);

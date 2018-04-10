@@ -89,6 +89,7 @@
             });
         }
 
+
         /**
          * @ngdoc function
          * @name app.cors.customers.tableCustomersCtrl#deleteCustomers
@@ -97,10 +98,28 @@
          * @param value
          */
         function deleteCustomers(value){
-            customersService.DeleteCustomers(value).then(function success() {
+            customersService.DeleteCustomers(value).then(function success(resp) {
+                deleteCustomersArray(value);
             }, function error(error) {
                 loggerService.error('customers - delete ',error);
             });
+        }
+
+        /**
+         * @ngdoc function
+         * @name deleteCustomersArray
+         * @param value
+         */
+        function deleteCustomersArray(value) {
+            var index = -1;
+            var array = $ctrl.listCustomers.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listCustomers.rows.splice( index, 1 );
         }
     }
 
@@ -111,7 +130,8 @@
             templateUrl: 'app/modules/customers/table/table.tpl.html',
             controller: tableCustomersCtrl,
             bindings:{
-                editCustomer: '='
+                editCustomer: '=',
+                listCustomers :"=",
             }
         });
 })(angular);

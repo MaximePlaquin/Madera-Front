@@ -22,12 +22,16 @@
             });
         });
 
-        $ctrl.user = {
-            firstName : 'Guy',
-            lastName : 'Madera',
-            fonction: 'Directeur',
-            isAdmin: 'true'
-        };
+        function getUser(){
+            return $localStorage.infosUser;
+        }
+
+        $scope.$watch(getUser, function(newValue){
+            $timeout(function(){
+                $ctrl.user = newValue;
+            });
+        });
+
     }
 
     headerCtrl.$inject = ['$localStorage', '$scope', '$timeout'];

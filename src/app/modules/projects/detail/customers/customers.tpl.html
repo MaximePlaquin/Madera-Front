@@ -3,3 +3,38 @@
         <h1 class="main-title pull-left">Client</h1>
     </div>
 </div>
+
+<div class="panel panel-default vertical-align">
+    <div class="panel-body">
+        <form name="$ctrl.form_customer" novalidate>
+
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="customer" input-label="Référence client" input-control="$ctrl.form_customer">
+                <select ng-model="$ctrl.customer"  class="form-control" ng-options="customer as ('Référence : ' + customer.identifiant) for customer in $ctrl.listCustomers"></select>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.lastname" name="lastname" placeholder="Nom" value="lastname" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="firstname" input-label="Prénom" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.firstname" name="firstname" placeholder="Prénom" value="firstname" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Email" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.mail" name="mail" placeholder="Email" value="mail" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="phone" input-label="Téléphone" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.telephone" name="phone" placeholder="Téléphone" value="phone" />
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="address" input-label="Adresse" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.adresse" name="address" placeholder="Adresse" value="address" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-4 col-md-4 col-sm-4 col-xs-4" input-name="zipcode" input-label="Code postal" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.cp" name="zipcode" placeholder="CP" value="zipcode" />
+            </input-global>
+            <input-global  input-class="col-lg-8 col-md-8 col-sm-8 col-xs-8" input-name="city" input-label="Ville" input-control="$ctrl.form_customer">
+                <input type="text"  class="form-control" ng-model="$ctrl.customer.ville" name="city" placeholder="Ville" value="city" />
+            </input-global>
+            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.customer)" btn-name="Valider"></button-global>
+            </div>
+        </form>
+    </div>
+</div>

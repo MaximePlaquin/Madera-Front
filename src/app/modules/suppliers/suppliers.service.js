@@ -33,7 +33,9 @@
         var service = {
             GetAllSuppliers: GetAllSuppliers,
             GetSuppliers: GetSuppliers,
-            DeleteSuppliers: DeleteSuppliers
+            DeleteSuppliers: DeleteSuppliers,
+            CreateSuppliers : CreateSuppliers ,
+            UpdateSuppliers : UpdateSuppliers,
         };
 
         /**
@@ -68,6 +70,12 @@
             return restSuppliers.Delete(data);
         }
 
+        function CreateSuppliers(data) {
+            return restSuppliers.Create(data);
+        }
+        function UpdateSuppliers(data) {
+            return restSuppliers.Update(data);
+        }
         return service;
     }
 

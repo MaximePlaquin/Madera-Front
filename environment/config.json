@@ -2,7 +2,7 @@
  "env": {
    "local": {
      "BASE": {
-       "url": "http://localhost:3000/rest/"
+       "url": "http://localhost:33936/rest/"
      }
    }
  }

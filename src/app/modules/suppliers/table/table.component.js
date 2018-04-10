@@ -97,9 +97,22 @@
          */
         function deleteSuppliers(value){
             suppliersService.DeleteSuppliers(value).then(function success() {
+                deleteSuppliersArray(value);
+
             }, function error(error) {
                 loggerService.error('suppliers - delete ',error);
             });
+        }
+        function deleteSuppliersArray(value) {
+            var index = -1;
+            var array = $ctrl.listSuppliers.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listSuppliers.rows.splice( index, 1 );
         }
     }
 
@@ -110,7 +123,8 @@
             templateUrl: 'app/modules/suppliers/table/table.tpl.html',
             controller: tableSuppliersCtrl,
             bindings: {
-                editSupplier: '='
+                editSupplier: '=',
+                listSuppliers:"=",
             }
         });
 })(angular);

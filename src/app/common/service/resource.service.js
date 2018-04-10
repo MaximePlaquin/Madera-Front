@@ -13,7 +13,8 @@
     function resourceService($resource) {
 
         var resource = function (url) {
-            return $resource(url, {}, {
+             return $resource(url+'/:id', {id:'@id'}, {
+            //return $resource(url, {}, {
                 update: {method: 'PUT'},
                 delete: {
                     method: 'DELETE'
@@ -21,6 +22,10 @@
                 query: {
                     method: 'GET',
                     isArray: true
+                },
+                queryObject: {
+                    method: 'GET',
+                    isArray: false
                 }
             });
         };

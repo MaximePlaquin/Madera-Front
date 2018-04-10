@@ -25,7 +25,7 @@
          * @return true ou false
          */
         function isUndefinedOrNull(value){
-            return angular.isUndefined(value) || value === null  || value === 'null' || value === {};
+            return angular.isUndefined(value) || value === null  || value === 'null' || Object.keys(value).length !== 0;
 
         }
 

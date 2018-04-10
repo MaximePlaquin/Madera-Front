@@ -80,6 +80,7 @@
          */
         function createCustomers(value){
             customersService.CreateCustomers(value).then(function success() {
+                $ctrl.listCustomers.rows.push(value);
             }, function error(error) {
                 loggerService.error('customers - create ',error);
             });
@@ -93,7 +94,8 @@
             templateUrl: 'app/modules/customers/form/form.tpl.html',
             controller: formCustomersCtrl,
             bindings:{
-                customer: '='
+                customer: '=',
+                listCustomers :"=",
             }
         });
 })(angular);

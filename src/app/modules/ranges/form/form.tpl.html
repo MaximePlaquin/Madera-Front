@@ -7,19 +7,19 @@
         <br><br>
         <form name="form_range" novalidate>
             <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="name" input-label="Libellé" input-control="form_range">
-                <input type="text"  class="form-control" ng-model="$ctrl.range.name" name="name" placeholder="Libellé" value="name" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.range.libelle" name="name" placeholder="Libellé" value="name" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="outdoor" input-label="Finition extérieure" input-control="form_range">
-                <input type="text"  class="form-control" ng-model="$ctrl.range.outdoor" name="outdoor" placeholder="Finition extérieure" value="outdoor" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.range.type_finition_exterieur" name="outdoor" placeholder="Finition extérieure" value="outdoor" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-4 col-md-4 col-sm-12 col-xs-12" input-name="insulating" input-label="Type isolant" input-control="form_range">
-                <input type="text"  class="form-control" ng-model="$ctrl.range.insulating" name="insulating" placeholder="Type isolant" value="insulating" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.range.type_isolant" name="insulating" placeholder="Type isolant" value="insulating" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-4 col-md-4 col-sm-12 col-xs-12" input-name="roofting" input-label="Type couverture" input-control="form_range">
-                <input type="text"  class="form-control" ng-model="$ctrl.range.roofting" name="roofting" placeholder="Type couverture" value="roofting" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.range.type_couverture" name="roofting" placeholder="Type couverture" value="roofting" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-4 col-md-4 col-sm-12 col-xs-12" input-name="windowFrame" input-label="Huisserie" input-control="form_range">
-                <input type="text"  class="form-control" ng-model="$ctrl.range.windowFrame" name="windowFrame" placeholder="Huisserie" value="windowFrame" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.range.type_huisserie" name="windowFrame" placeholder="Huisserie" value="windowFrame" ng-required="true"/>
             </input-global>
             <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
                 <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.range)" btn-name="Valider"></button-global>
