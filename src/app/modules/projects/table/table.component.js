@@ -15,6 +15,17 @@
 
         /**
          * @ngdoc property
+         * @name app.cors.users.tableProjectsCtrl#checkSelected
+         * @methodOf app.cors.users.tableProjectsCtrl
+         * @description Initilisation boolean si projet sélectionné
+         *
+         */
+        $ctrl.checkSelected = false;
+
+        $ctrl.listStep = ['Commercial', 'Comptabilité', 'Architecte'];
+
+        /**
+         * @ngdoc property
          * @name app.cors.users.tableProjectsCtrl#pagination
          * @methodOf app.cors.users.tableProjectsCtrl
          * @description Initilisation pagination tableau
@@ -32,7 +43,6 @@
          */
         $ctrl.listProjects = {
             'header': [
-                { 'checkboxe': '' },
                 { 'id': 'Référence projet' },
                 { 'idClient': 'Référence client' },
                 { 'status': 'Status' },
@@ -58,6 +68,15 @@
 
         /**
          * @ngdoc method
+         * @name app.cors.projects.tableProjectsCtrl#edit
+         * @methodOf app.cors.projects.tableProjectsCtrl
+         * @description
+         * Appel editer projets
+         *
+         */
+        $ctrl.edit = editProjects;
+        /**
+         * @ngdoc method
          * @name app.cors.projects.tableProjectsCtrl#delete
          * @methodOf app.cors.projects.tableProjectsCtrl
          * @description
@@ -65,6 +84,35 @@
          *
          */
         $ctrl.delete = deleteProjects;
+
+        /**
+         * @ngdoc method
+         * @name app.cors.projects.tableProjectsCtrl#selectProject
+         * @methodOf app.cors.projects.tableProjectsCtrl
+         * @description
+         * recupere le projet sélectionné
+         *
+         */
+        $ctrl.selectProject = selectProject;
+
+        /**
+         * @ngdoc function
+         * @name app.cors.projects.tableProjectsCtrl#selectProject
+         * @methodOf app.cors.projects.tableProjectsCtrl
+         * @description
+         * recupere le projet sélectionné
+         *
+         */
+        function selectProject() {
+            projectsService.GetProjects($ctrl.selectedProject).then(function success(response) {
+                $ctrl.dataProject = response;
+                console.log($ctrl.dataProject);
+                $ctrl.checkSelected = true;
+                loggerService.debug('projects - select ', response);
+            }, function error(error) {
+                loggerService.error('projects - select ', error);
+            });
+        }
 
         /**
          * @ngdoc function
@@ -85,13 +133,29 @@
 
         /**
          * @ngdoc function
+         * @name app.cors.projects.tableProjectsCtrl#editProjects
+         * @description edit projet
+         *
+         * @param value
+         */
+        function editProjects(value){
+            projectsService.EditProjects(value).then(function success() {
+                getAllProjects();
+            }, function error(error) {
+                loggerService.error('projects - edit ',error);
+            });
+        }
+
+        /**
+         * @ngdoc function
          * @name app.cors.projects.tableProjectsCtrl#deleteProjects
-         * @description suppression profil
+         * @description suppression proejt
          *
          * @param value
          */
         function deleteProjects(value){
             projectsService.DeleteProjects(value).then(function success() {
+                getAllProjects();
             }, function error(error) {
                 loggerService.error('projects - delete ',error);
             });

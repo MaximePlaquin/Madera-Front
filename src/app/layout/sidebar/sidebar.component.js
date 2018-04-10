@@ -22,6 +22,15 @@
                 });
         });
 
+        function getUser(){
+            return $localStorage.infosUser;
+        }
+
+        $scope.$watch(getUser, function(newValue){
+            $timeout(function(){
+                $ctrl.user = newValue;
+            });
+        });
     }
 
     sidebarCtrl.$inject = ['$localStorage', '$scope', '$timeout'];

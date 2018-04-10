@@ -168,3 +168,113 @@ ul .pagination {
     color: #9c1818;
     text-align: center;
 }
+
+/* Devis */
+
+.items-table .row {
+          border-bottom:1px solid #ddd;
+          line-height:3em;
+      }
+.items-table .row:last-child {
+    border-bottom:none;
+    line-height:3em;
+}
+
+.invoice-number-container * {
+    font-weight:bold;
+}
+
+.items-table .row:nth-child(even) {
+    background:#f9f9f9;
+}
+.items-table input {
+    line-height:1.5em;
+}
+input:focus {
+    outline: 0;
+}
+.branding {
+    padding-bottom:2em;
+    border-bottom:1px solid #ddd;
+}
+.logo-container {
+    text-align:right;
+}
+.infos .right {
+    text-align:right;
+}
+.infos .right input {
+    text-align:right;
+}
+.infos .input-container {
+    padding:3px 0;
+}
+
+.header.row {
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+    border-top:1px solid #ddd;
+}
+
+input, textarea{
+    border: 1px solid #FFF;
+}
+
+.container input:hover, .container textarea:hover,
+.table-striped > tbody > tr:nth-child(2n+1) > td input:hover,
+.container input:focus, .container textarea:focus,
+.table-striped > tbody > tr:nth-child(2n+1) > td input:focus{
+    border: 1px solid #CCC;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td input{
+    background-color: #F9F9F9;
+    border: 1px solid #F9F9F9;
+}
+
+.infos input{
+    width: 300px;
+}
+
+.align-right input{
+    text-align:right;
+    width: 300px;
+}
+
+div.container{
+    width: 800px;
+}
+
+@media print {
+    .noPrint {
+        display:none;
+    }
+}
+
+/* Stats */
+
+.legend-scale ul li {
+    display: block;
+    float: left;
+    width: 35%;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 80%;
+    list-style: none;
+}
+ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 25px;
+    width: 25px;
+    margin-left:2vh;
+}
+.a-faire{
+    background-color: #cccccc;
+}
+.en-cours {
+    background-color: #ffcc00;
+}
+.termine {
+    background-color: #ccff33;
+}

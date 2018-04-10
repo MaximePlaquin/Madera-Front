@@ -28,9 +28,9 @@
     <div class="panel panel-default">
         <div class="list-group">
             <a class="list-group-item active" href="#/home"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Accueil</a>
-            <a class="list-group-item" href="#/users"><i class="fa fa-user fa-2x" aria-hidden="true"></i> Utilisateurs</a>
+            <a ng-if="$ctrl.user.admin === 1" class="list-group-item" href="#/users"><i class="fa fa-user fa-2x" aria-hidden="true"></i> Utilisateurs</a>
             <a class="list-group-item" href="#/customers"><i class="fa fa-address-book fa-2x" aria-hidden="true"></i> Clients </a>
-            <a class="list-group-item" href="#/suppliers"><i class="fa fa-truck fa-2x" aria-hidden="true"></i> Fournisseurs</a>
+            <a ng-if="$ctrl.user.admin === 1" class="list-group-item" href="#/suppliers"><i class="fa fa-truck fa-2x" aria-hidden="true"></i> Fournisseurs</a>
            <!-- <a class="list-group-item" href="#/stocks"><i class="fa fa-cubes fa-2x" aria-hidden="true"></i> Gestion des stocks</a> -->
             <a class="list-group-item" href="#/projects"><i class="fa fa-folder-open fa-2x" aria-hidden="true"></i> Gestion projet</a>
             <a class="list-group-item" href="#/modules"><i class="fa fa-cog fa-2x" aria-hidden="true"></i> Modules</a>

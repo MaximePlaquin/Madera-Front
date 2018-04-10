@@ -33,7 +33,9 @@
         var service = {
             GetAllCustomers: GetAllCustomers,
             GetCustomers: GetCustomers,
-            DeleteCustomers: DeleteCustomers
+            DeleteCustomers: DeleteCustomers,
+            UpdateCustomers: UpdateCustomers,
+            CreateCustomers: CreateCustomers
         };
 
         /**
@@ -46,6 +48,8 @@
         function GetAllCustomers() {
             return restCustomers.GetAll();
         }
+
+
 
         /**
          * @ngdoc function
@@ -67,6 +71,18 @@
         function DeleteCustomers(data) {
             return restCustomers.Delete(data);
         }
+
+
+        function UpdateCustomers(data) {
+            console.log(data);
+            return restCustomers.Update(data);
+        }
+        function CreateCustomers(data) {
+            console.log(data);
+
+            return restCustomers.Create(data);
+        }
+
 
         return service;
     }

@@ -6,30 +6,33 @@
         </div>
         <br><br>
         <form name="$ctrl.form_supplier" novalidate>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Référence fournisseur" input-control="form_supplier">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="identifiant" input-label="Référence fournisseur" input-control="$ctrl.form_supplier">
                 <input type="text"  class="form-control" ng-model="$ctrl.supplier.identifiant" name="identifiant" placeholder="Référence fournisseur" value="identifiant" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="name" input-label="Raison sociale" input-control="form_supplier">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="name" input-label="Raison sociale" input-control="$ctrl.form_supplier">
                 <input type="text"  class="form-control" ng-model="$ctrl.supplier.name" name="name" placeholder="Raison sociale" value="name" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="siren" input-label="Siren" input-control="form_supplier">
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="siren" input-label="Siren" input-control="$ctrl.form_supplier">
                 <input type="text"  class="form-control" ng-model="$ctrl.supplier.siren" name="siren" placeholder="Siren" value="siren" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="phone" input-label="Téléphone" input-control="form_supplier">
-                <input type="text"  class="form-control" ng-model="$ctrl.supplier.phone" name="phone" placeholder="Téléphone" value="phone" ng-required="true"/>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="phone" input-label="Téléphone" input-control="$ctrl.form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.telephone" name="phone" placeholder="Téléphone" value="phone" ng-required="true"/>
+            </input-global>
+            <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="mail" input-label="Mail" input-control="$ctrl.form_supplier">
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.mail" name="mail" placeholder="Mail" value="phone" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="address" input-label="Adresse" input-control="form_customer">
-                <input type="text"  class="form-control" ng-model="$ctrl.customer.address" name="address" placeholder="Adresse" value="address" ng-required="true"/>
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.adresse" name="address" placeholder="Adresse" value="address" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-4 col-md-4 col-sm-4 col-xs-4" input-name="zipcode" input-label="Code postal" input-control="form_customer">
-                <input type="text"  class="form-control" ng-model="$ctrl.customer.zipcode" name="zipcode" placeholder="CP" value="zipcode" />
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.cp" name="zipcode" placeholder="CP" value="zipcode" />
             </input-global>
             <input-global  input-class="col-lg-8 col-md-8 col-sm-8 col-xs-8" input-name="city" input-label="Ville" input-control="form_customer">
-                <input type="text"  class="form-control" ng-model="$ctrl.customer.city" name="city" placeholder="Ville" value="city" />
+                <input type="text"  class="form-control" ng-model="$ctrl.supplier.ville" name="city" placeholder="Ville" value="city" />
             </input-global>
             <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
                 <button-global btn-class="btn btn-default" btn-function="$ctrl.reset()" btn-name="Réinitialiser"></button-global>
-                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.user)" btn-name="Valider"></button-global>
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.supplier)" btn-name="Valider"></button-global>
             </div>
         </form>
     </div>

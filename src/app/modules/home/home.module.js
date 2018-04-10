@@ -25,6 +25,6 @@
      * @name app.cors.home
      */
     angular
-        .module('app.cors.home', ['ui.router'])
+        .module('app.cors.home', ['ui.router', 'angular.directives-chartjs-doughnut'])
         .config(['$stateProvider', config]);
 })(angular);

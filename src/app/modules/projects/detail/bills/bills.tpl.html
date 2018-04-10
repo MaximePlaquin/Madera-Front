@@ -1,5 +1,89 @@
-<div class="panel panel-default vertical-align">
+<div class="panel panel-default vertical-align noPrint">
+    <div class="panel-body ">
+        <h1 class="main-title pull-left ">Devis</h1>
+    </div>
+</div>
+
+
+<div class="panel">
     <div class="panel-body">
-        <h1 class="main-title pull-left">Devis</h1>
+        <div class="container" id="invoice" >
+            <div class="row branding">
+                <div class="col-xs-6">
+                    <div class="invoice-number-container" style="margin-top: 5vh">
+                        <p>Référence : {{ $ctrl.referenceInvoice }} </p>
+                    </div>
+                </div>
+                <div class="col-xs-6 logo-container">
+                    <img id="company_logo" ng-src="{{ $ctrl.logo }}" alt="your image" width="250" />
+                </div>
+            </div>
+            <div class="row infos">
+                <div class="col-xs-6">
+                    <div class="input-container">{{ $ctrl.customer.lastname }} {{ $ctrl.infosProject.clients.firstname }}</div>
+                    <div class="input-container">{{ $ctrl.customer.adresse}}</div>
+                    <div class="input-container">{{ $ctrl.customer.cp }} {{ $ctrl.infosProject.clients.ville }}</div>
+                    <div class="input-container">Tel : {{$ctrl.customer.telephone }}</div>
+                </div>
+                <div class="col-xs-6 right">
+                    <div class="input-container">Madera</div>
+                    <div class="input-container">2 boulevard de l'ouest</div>
+                    <div class="input-container">59000 Lille</div>
+                    <div class="input-container">Tel : 03 43 xx xx xx</div>
+                    <div class="input-container">Mail : contact@madera.fr</div>
+                </div>
+            </div>
+            <div class="items-table">
+                <div class="row header">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-5">Nom produit</div>
+                    <div class="col-xs-2">Quantité</div>
+                    <div class="col-xs-2">Prix €</div>
+                    <div class="col-xs-2 text-right">Total</div>
+                </div>
+
+                <div class="row invoice-item" ng-repeat="item in $ctrl.invoice" ng-animate="'slide-down'">
+                    <div class="col-xs-1 remove-item-container">
+                        <a href ng-hide="$ctrl.printMode" ng-click="$ctrl.removeItem(item)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> </a>
+                    </div>
+                    <div class="col-xs-5 input-container">
+                        <input style="width:100%" ng-model="item.nom" placeholder="Nom" />
+                    </div>
+                    <div class="col-xs-2 input-container">
+                        <input  style="width:100%"ng-model="item.quantite" value="1" size="4" ng-required ng-validate="integer" placeholder="Quantite" />
+                    </div>
+                    <div class="col-xs-2 input-container">
+                        <input style="width:100%" ng-model="item.prix" value="0.00" ng-required ng-validate="number" size="6" placeholder="Prix" />
+                    </div>
+                    <div class="col-xs-2 text-right input-container">
+                        {{item.quantite * item.prix }} €
+                    </div>
+                </div>
+                <div class="row invoice-item">
+                    <div class="col-xs-12 add-item-container" ng-hide="$ctrl.printMode">
+                        <a class="btn btn-default" href ng-click="$ctrl.addItem()" ><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 text-right">TOTAL HT</div>
+                    <div class="col-xs-2 text-right">{{ $ctrl.totalHT() }} €</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 text-right">TVA 20 %</div>
+                    <div class="col-xs-2 text-right">{{ $ctrl.tva() }} €</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 text-right">TOTAL TTC:</div>
+                    <div class="col-xs-2 text-right">{{ $ctrl.totalTTC() }} €</div>
+                </div>
+            </div>
+            <div class="row noPrint actions" style="margin-top: 5vh">
+                <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                    <a  class="btn btn-default" ng-show="$ctrl.printMode" ng-click="$ctrl.printInfo()">Impression</a>
+                    <a  class="btn btn-default" ng-hide="$ctrl.printMode" ng-click="$ctrl.printValidation()">Mode impression</a>
+                    <a  class="btn btn-default" ng-show="$ctrl.printMode" ng-click="$ctrl.printEdition()">Mode edition</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

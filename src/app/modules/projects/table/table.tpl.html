@@ -1,5 +1,24 @@
 <div class="panel panel-default">
     <div class="panel-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <form name="$ctrl.update" ng-show="$ctrl.checkSelected">
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="id" input-label="Référence projet" >
+                    <input type="text"  ng-disabled="true" class="form-control" ng-model="$ctrl.dataProject.id" name="id" placeholder="Référence projet" value="id" ng-required="true"/>
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="lastname" input-label="Nom" >
+                    <select ng-model="$ctrl.dataProject.step"  class="form-control" ng-options="step as step for step in $ctrl.listStep"></select>
+                </input-global>
+                    <button-global ng-show="$ctrl.checkSelected" btn-class="btn btn-default" btn-function="$ctrl.edit($ctrl.dataProject)" btn-name="Réassigner"></button-global>
+                    <button-global ng-show="$ctrl.checkSelected" btn-class="btn btn-default" btn-function="$ctrl.edit($ctrl.dataProject)" btn-name="Faire suivre"></button-global>
+                </form>
+                <div class="text-right">
+                <a ui-sref="projectsDetail()" class="btn btn-default" data-title="new">Nouveau</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
         <h3 class="panel-title pull-left">Liste des projets</h3>
         <br><br>
         <table-global tab-col-class="col-md-12"
@@ -11,14 +30,13 @@
                     <thead tasty-thead="" class="table-head"></thead>
                     <tbody>
                     <tr ng-repeat="row in rows">
-                        <td>x</td>
-                        <td>{{row.id}}</td>
-                        <td>{{row.idClient}}</td>
-                        <td>{{row.status}}</td>
-                        <td>{{row.step}}</td>
-                        <td>{{row.date}}</td>
-                        <td><a ui-sref="projectsDetail({id: row.id})" class="btn btn-primary btn-xs" data-title="Edit">Modifier</a></td>
-                        <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.id)" >Supprimer</button></td>
+                        <td>{{row.reference}}</td>
+                        <td>{{row.ID_client}}</td>
+                        <td>{{row.statut}}</td>
+                        <td>{{row.etape}}</td>
+                        <td>{{row.date_modification}}</td>
+                        <td><a ui-sref="projectsDetail({id: row.reference})" class="btn btn-primary btn-xs" data-title="Edit">Modifier</a></td>
+                        <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.reference)" >Supprimer</button></td>
                     </tr>
                     </tbody>
                 </table>

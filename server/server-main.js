@@ -31,14 +31,14 @@ module.exports = function (app) {
         { "id": 3, "idClient": "testC" , "status": "Terminé", "step": "", "date": "12/01/2017"}
     ];
 
-    var users = [
-        { "id": 1, "name": "Max" },
-        { "id": 2, "name": "Cyril" },
-        { "id": 3, "name": "Edouard" },
-        { "id": 4, "name": "Florentin" },       
-        { "id": 5, "name": "Quentin" },
-        { "id": 6, "name": "Guy" }
+    var plans = [
+        { "id": 1, "range": "testA", "status": "En Cours", "service": "Commercial", "date": "10/02/2018" },
+        { "id": 2, "range": "testB", "status": "En cours", "service": "Comptable", "date": "20/12/2017" },
+        { "id": 3, "range": "testC" , "status": "Terminé", "service": "", "date": "12/01/2017"}
     ];
+
+
+
 
     var components = [
         { "id": 1, "name": "Vis", "quantity": 10, "price": 100, "family": "Visserie", "supplier": "BTP"},
@@ -58,17 +58,29 @@ module.exports = function (app) {
         { "id": 3, "name": "testC", "outdoor": "testC", "insulating":"testC", "windowFrame": "testC", "roofting": "testC"}
     ];
 
-    var customers = [
-        { "id": 1, "lastname": "testA", "firstname": "testA"},
-        { "id": 2, "lastname": "testB", "firstname": "testA"},
-        { "id": 3, "lastname": "testC", "firstname": "testA"}
-    ];
 
     var suppliers = [
         { "id": 1, "name": "testA", "siren": "testA"},
         { "id": 2, "name": "testB", "siren": "testA"},
         { "id": 3, "name": "testC", "siren": "testA"}
     ];
+
+    /** plans **/
+
+    app.get('/rest/plans', function (req, res) {
+
+        if(Object.keys(req.query).length !== 0){
+            console.log('--- get plan ---');
+            for(plan in plans){
+                if(plan === req.query.id){
+                    res.send( { "id": 1, "range": "testA", "status": "En Cours", "service": "Commercial", "date": "10/02/2018" });
+                }
+            }
+        } else {
+            console.log('--- get plans ---');
+            res.send(plans);
+        }
+    });
 
     /** users **/
 
@@ -120,6 +132,7 @@ module.exports = function (app) {
 
     app.post('/rest/customers', function (req, res) {
         console.log('--- post customers ---');
+        console.log(req);
         res.send(customers);
     });
 
@@ -157,14 +170,24 @@ module.exports = function (app) {
 
     /** projects **/
 
-    app.get('/rest/projects', function (req, res) {
-        console.log('--- get projects ---');
-        res.send(projects);
-    });
-
     app.delete('/rest/customers', function (req, res) {
         console.log('--- delete customers ---');
         res.send(req.query.id);
+    });
+
+    app.get('/rest/projects', function (req, res) {
+        if(Object.keys(req.query).length !== 0){
+            console.log('--- get projects ---> ', req.query.id);
+            for(project in projects){
+                if(project === req.query.id){
+                    res.send({ "id": 1, "idClient": "testA", "status": "En Cours", "step": "Commercial", "date": "10/02/2018" });
+                }
+            }
+        } else {
+            console.log('--- get projects ---');
+            res.send(projects);
+        }
+
     });
 
     /** components **/

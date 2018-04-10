@@ -1,22 +1,33 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3 class="panel-title pull-left">Ajout module</h3>
+        <div ng-switch="$ctrl.extension.id">
+            <h3 class="panel-title pull-left" ng-switch-when="undefined">Ajout Module</h3>
+            <h3 class="panel-title pull-left" ng-switch-default >Mise a jour Module</h3>
+        </div>
         <br><br>
+
         <form name="form_extension" novalidate>
-            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="name" input-label="Libellé" input-control="form_extension">
-                <input type="text"  class="form-control" ng-model="$ctrl.extension.name" name="name" placeholder="Libellé" value="name" ng-required="true"/>
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="name" input-label="Référence" input-control="form_extension">
+                <input type="text"  class="form-control" ng-model="$ctrl.extension.reference" name="name" placeholder="Référence" value="name" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="price" input-label="Tarif" input-control="form_extension">
-                <input type="text"  class="form-control" ng-model="$ctrl.extension.price" name="price" placeholder="Tarif" value="price" ng-required="true"/>
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="libelle" input-label="Libelle" input-control="form_extension">
+                <input type="text"  class="form-control" ng-model="$ctrl.extension.nom" name="libelle" placeholder="Libelle" value="libelle" ng-required="true"/>
             </input-global>
-            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="nature" input-label="Nature" input-control="form_extension">
-                <input type="text"  class="form-control" ng-model="$ctrl.extension.nature" name="nature" placeholder="Nature" value="nature" ng-required="true"/>
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="quantite" input-label="Quantité" input-control="form_extension">
+                <input type="text"  class="form-control" ng-model="$ctrl.extension.quantite" name="quantite" placeholder="Quantité" value="quantité" ng-required="true"/>
+            </input-global>
+
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="temps" input-label="Temps Fabrication" input-control="form_extension">
+                <input type="text"  class="form-control" ng-model="$ctrl.extension.temps_fabrication" name="temps_fabrication" placeholder="Temps fabrication" value="Temps fabrication" ng-required="true"/>
             </input-global>
             <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="range" input-label="Gamme" input-control="form_extension">
-                <input type="text"  class="form-control" ng-model="$ctrl.extension.range" name="range" placeholder="Gamme" value="range" ng-required="true"/>
+                <select ng-model="$ctrl.extension.id_gamme"  class="form-control" ng-options="range.id as (range.libelle) for range in $ctrl.listRanges"></select>
+            </input-global>
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="maison" input-label="Maison" input-control="form_extension">
+                <select ng-model="$ctrl.extension.id_maison"  class="form-control" ng-options="maison.ID_Maison as (maison.nom) for maison in $ctrl.listHouses"></select>
             </input-global>
             <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
-                <button-global btn-class="btn btn-default" btn-function="$ctrl.create($ctrl.extension)" btn-name="Valider"></button-global>
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.extension)" btn-name="Valider"></button-global>
             </div>
         </form>
     </div>

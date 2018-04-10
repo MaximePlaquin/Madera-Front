@@ -8,10 +8,38 @@
      *
      */
     /* @ngInject */
-    function extensionsCtrl() {
+    function extensionsCtrl(extensionsService, loggerService) {
         /*jshint validthis : true*/
         var $ctrl = this;
+
+        /**
+         * @ngdoc property
+         * @name app.cors.ranges.formExtensionsCtrl#editExtension
+         * @description appel fonction recuperer valeur gamme
+         *
+         */
+        $ctrl.editExtension = getExtension;
+
+        /**
+         * @ngdoc function
+         * @name app.cors.ranges.rangesCtrl#getExtensions
+         * @description recupere les valeurs du gamme
+         *
+         */
+        function getExtension(value){
+            extensionsService.GetExtensions(value).then(function success(response) {
+                $ctrl.extension = response;
+            }, function error(error) {
+                loggerService.error('extension - get ',error);
+            });
+        }
+
+
+
+
     }
+
+    extensionsCtrl.$inject = ['extensionsService', 'loggerService'];
 
     angular.module('app.cors.extensions')
         .component('extensions', {

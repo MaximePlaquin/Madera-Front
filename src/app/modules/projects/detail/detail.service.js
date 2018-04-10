@@ -3,55 +3,67 @@
 
     /**
      * @ngdoc service
-     * @name app.cors.projects.projectsDetailService
+     * @name app.cors.projects.plansService
      * @description Service du module projects
      *
      * @requires BASE
      * @requires app.common.service.restService
      **/
     /* @ngInject */
-    function projectsDetailService(BASE, restService) {
+    function plansService(BASE, restService) {
 
         /**
          * @ngdoc property
-         * @name app.cors.projects.projectsDetailService#url
-         * @methodOf app.cors.projects.projectsDetailService
+         * @name app.cors.projects.plansService#url
+         * @methodOf app.cors.projects.plansService
          * @description Initialise url backend
          *
          */
-        var url = BASE.url + 'projects';
+        var url = BASE.url + 'plans';
 
         /**
          * @ngdoc property
-         * @name app.cors.projects.projectsDetailService#restProjects
-         * @methodOf app.cors.projects.projectsDetailService
+         * @name app.cors.projects.plansService#restProjects
+         * @methodOf app.cors.projects.plansService
          * @description Initialise objet
          *
          */
         var restProjects = new restService(url);
 
         var service = {
-            GetAllProjects: GetAllProjects
+            GetAllPlans: GetAllPlans,
+            DeletePlans: DeletePlans
         };
 
         /**
          * @ngdoc function
-         * @name app.cors.projects.projectsDetailService#GetAllProjects
-         * @methodOf app.cors.projects.projectsDetailService
+         * @name app.cors.projects.plansService#GetAllProjects
+         * @methodOf app.cors.projects.plansService
          * @description Initialise requete Get
          *
          */
-        function GetAllProjects() {
+        function GetAllPlans() {
             return restProjects.GetAll();
+        }
+
+        /**
+         * @ngdoc function
+         * @name app.cors.projects.plansService#DeletePlans
+         * @methodOf app.cors.projects.plansService
+         * @description Initialise requete Delete
+         *
+         */
+        function DeletePlans(data) {
+            return restProjects.GetAll(data);
         }
 
         return service;
     }
 
-    projectsDetailService.$inject = ['BASE', 'restService'];
+    plansService.$inject = ['BASE', 'restService'];
 
     angular
         .module('app.cors.projectsDetail')
-        .service('projectsDetailService', projectsDetailService);
+        .service('plansService', plansService);
 
 })(angular);

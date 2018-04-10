@@ -81,6 +81,7 @@
          */
         function createUsers(value){
             usersService.CreateUsers(value).then(function success() {
+                $ctrl.listUsers.rows.push(value);
             }, function error(error) {
                 loggerService.error('users - create ',error);
             });
@@ -94,7 +95,8 @@
             templateUrl: 'app/modules/users/form/form.tpl.html',
             controller: formUsersCtrl,
             bindings:{
-                user: '='
+                user: '=',
+                listUsers: '='
             }
         });
 })(angular);

@@ -11,8 +11,6 @@
     function webAppCtrl($localStorage) {
         /*jshint validthis : true*/
         var $ctrl = this;
-
-        $localStorage.isAuthenticated  = false;
     }
 
     webAppCtrl.$inject = ['$localStorage'];

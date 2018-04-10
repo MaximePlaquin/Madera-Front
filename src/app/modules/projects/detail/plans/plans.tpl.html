@@ -3,3 +3,27 @@
         <h1 class="main-title pull-left">Plans</h1>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2> Plan </h2>
+        <br><br>
+        {{$ctrl.listHouses}}
+                <form name="form_plan" novalidate>
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="plan" input-label="Plan" input-control="form_plan">
+                <select ng-model="$ctrl.plan.picture"  class="form-control" ng-options="plan as (plan.nom) for plan in $ctrl.listHouses"></select>
+            </input-global>
+            {{$ctrl.plan.picture}}
+            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="range" input-label="Gamme" input-control="form_extension">
+                <select ng-model="$ctrl.plan.range"  class="form-control" ng-options="range.name for range in $ctrl.listRanges"></select>
+            </input-global>
+            <div class="col-md-12" ng-show="$ctrl.plan.picture.path_picture">
+                <h2> Aperçu plan sélectionné : </h2>
+                <img width="400" height="400" src="{{$ctrl.plan.picture.path_picture}}" alt="plan" />
+            </div>
+            <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.plan)" btn-name="Valider"></button-global>
+            </div>
+        </form>
+    </div>
+</div>

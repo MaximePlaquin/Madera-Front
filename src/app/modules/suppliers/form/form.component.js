@@ -80,6 +80,7 @@
          */
         function createSuppliers(value){
             suppliersService.CreateSuppliers(value).then(function success() {
+                $ctrl.listSuppliers.rows.push(value);
             }, function error(error) {
                 loggerService.error('suppliers - create ',error);
             });
@@ -93,7 +94,8 @@
             templateUrl: 'app/modules/suppliers/form/form.tpl.html',
             controller: formSuppliersCtrl,
             bindings: {
-                supplier: "="
+                supplier: "=",
+                listSuppliers :"=",
             }
         });
 })(angular);

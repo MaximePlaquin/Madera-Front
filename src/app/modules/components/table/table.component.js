@@ -36,7 +36,7 @@
                 { 'name': 'Libellé' },
                 { 'quantity': 'Quantité' },
                 { 'price': 'Tarif' },
-                { 'family': 'Famille composant' },
+                { 'family': 'Famille' },
                 { 'supplier': 'Fournisseur' },
                 { 'edit': 'Modifier' },
                 { 'delete': 'Supprimer' }
@@ -102,9 +102,21 @@
          */
         function deleteComponents(value){
             componentsService.DeleteComponents(value).then(function success() {
+                deleteComponentsArray(value);
             }, function error(error) {
                 loggerService.error('Components - delete ',error);
             });
+        }
+        function deleteComponentsArray(value) {
+            var index = -1;
+            var array = $ctrl.listComponents.rows;
+            for( var i = 0; i < array.length; i++ ) {
+                if( array[i].id === value ) {
+                    index = i;
+                    break;
+                }
+            }
+            $ctrl.listComponents.rows.splice( index, 1 );
         }
 
     }
@@ -116,7 +128,8 @@
             templateUrl: 'app/modules/components/table/table.tpl.html',
             controller: tableComponentsCtrl,
             bindings: {
-                editComponent: '='
+                editComponent: '=',
+                listComponents :"=",
             }
         });
 })(angular);

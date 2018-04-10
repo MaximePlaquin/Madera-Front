@@ -12,11 +12,11 @@
                     <tbody>
                     <tr ng-repeat="row in rows">
                         <td>{{row.id}}</td>
-                        <td>{{row.name}}</td>
-                        <td>{{row.quantity}}</td>
-                        <td>{{row.price}}</td>
-                        <td>{{row.family}}</td>
-                        <td>{{row.supplier}}</td>
+                        <td>{{row.nom}}</td>
+                        <td>{{row.quantite}}</td>
+                        <td>{{row.prix}}</td>
+                        <td>{{row.famille}}</td>
+                        <td>{{row.fournisseur}}</td>
                         <td><button class="btn btn-primary btn-xs" data-title="Edit" ng-click="$ctrl.edit(row.id)" >Modifier</button></td>
                         <td><button class="btn btn-primary btn-xs" data-title="Delete" ng-click="$ctrl.delete(row.id)" >Supprimer</button></td>
                     </tr>

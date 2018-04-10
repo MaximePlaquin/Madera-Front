@@ -42,7 +42,7 @@
          *
          */
         function GetHome() {
-            return restHome.GetAll();
+            return restHome.GetObject();
         }
 
         return service;

@@ -12,17 +12,31 @@
      *
      */
     /* @ngInject */
-    function panelProfileCtrl(profileService, loggerService, notificationService, checkInputService) {
+    function panelProfileCtrl(profileService, loggerService, notificationService, checkInputService, $scope, $localStorage,$timeout) {
         /*jshint validthis : true*/
         var $ctrl = this;
 
         /**
          * @ngdoc function
-         * @name app.cors.profile.panelProfileCtrl#getProfile
-         * @description appel fonction getProfile
+         * @name app.cors.profile.panelProfileCtrl#getUser
+         * @description recupere l'utilisateur
          *
          */
-        getProfile();
+        function getUser(){
+            return $localStorage.infosUser;
+        }
+
+        /**
+         * @ngdoc function
+         * @name app.cors.profile.panelProfileCtrl#getUser
+         * @description watch user
+         *
+         */
+        $scope.$watch(getUser, function(newValue){
+            $timeout(function(){
+                getProfile(newValue);
+            });
+        });
 
         /**
          * @ngdoc method
@@ -59,8 +73,8 @@
          *
          */
         function getProfile(value){
-            profileService.GetProfile(value).then(function success(response) {
-                $ctrl.user = response;
+            profileService.GetProfile(value.id).then(function success(response) {
+                $ctrl.profile = response;
             }, function error(error) {
                 loggerService.error('profile - get ',error);
             });
@@ -81,8 +95,7 @@
         }
     }
 
-    panelProfileCtrl.$inject=['profileService', 'loggerService', 'notificationService', 'checkInputService'];
-
+    panelProfileCtrl.$inject=['profileService', 'loggerService', 'notificationService', 'checkInputService', '$scope', '$localStorage', '$timeout'];
     angular.module('app.cors.profile')
         .component('panelProfile', {
             templateUrl: 'app/modules/profile/panel/panel.tpl.html',
