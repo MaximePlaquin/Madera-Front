@@ -27,11 +27,11 @@
         function send(value){
             if(checkInputService.isUndefinedOrNull(value))
                 editMaison(value);
-                console.log('zizi');
         }
 
         function editMaison(value){
-            projectsService.EditProjects(value).then(function success() {
+            console.log(value);
+            projectsService.EditProjects({id: value.picture.ID_Maison}).then(function success() {
             }, function error(error) {
                 loggerService.error('projects - edit ',error);
             });

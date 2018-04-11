@@ -8,12 +8,10 @@
     <div class="panel-body">
         <h2> Plan </h2>
         <br><br>
-        {{$ctrl.listHouses}}
                 <form name="form_plan" novalidate>
             <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="plan" input-label="Plan" input-control="form_plan">
                 <select ng-model="$ctrl.plan.picture"  class="form-control" ng-options="plan as (plan.nom) for plan in $ctrl.listHouses"></select>
             </input-global>
-            {{$ctrl.plan.picture}}
 
             <div class="col-md-12" ng-show="$ctrl.plan.picture.path_picture">
                 <h2> Aperçu plan sélectionné : </h2>
