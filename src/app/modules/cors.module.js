@@ -19,7 +19,8 @@
         'app.cors.extensions',
         'app.cors.customers',
         'app.cors.login',
-        'app.cors.projectsDetail'
+        'app.cors.projectsDetail',
+        'app.cors.projectsCreate'
 
     ]);
 })(angular);

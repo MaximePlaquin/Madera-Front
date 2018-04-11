@@ -14,9 +14,7 @@
                 <select ng-model="$ctrl.plan.picture"  class="form-control" ng-options="plan as (plan.nom) for plan in $ctrl.listHouses"></select>
             </input-global>
             {{$ctrl.plan.picture}}
-            <input-global  input-class="col-lg-6 col-md-6 col-sm-12 col-xs-12" input-name="range" input-label="Gamme" input-control="form_extension">
-                <select ng-model="$ctrl.plan.range"  class="form-control" ng-options="range.name for range in $ctrl.listRanges"></select>
-            </input-global>
+
             <div class="col-md-12" ng-show="$ctrl.plan.picture.path_picture">
                 <h2> Aperçu plan sélectionné : </h2>
                 <img width="400" height="400" src="{{$ctrl.plan.picture.path_picture}}" alt="plan" />

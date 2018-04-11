@@ -1,0 +1,47 @@
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h1 class="main-title pull-left ">Création projet</h1>
+        </div>
+    </div>
+
+    <div class="panel panel-default vertical-align">
+        <div class="panel-body">
+            <form name="$ctrl.form_creation" novalidate>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="dateCreation" input-label="Date création" input-control="$ctrl.form_creation">
+                    <input type="text"  class="form-control" ng-model="$ctrl.createProject.date_creation" name="dateCreation" placeholder="Date création" value="dateCreation" ng-required="true"/>
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="dateCreation" input-label="Statut" input-control="$ctrl.form_creation">
+                <select name="status" ng-model="$ctrl.createProject.statut" class="form-control">
+                    <option value="A faire">A faire</option>
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                </select>
+                </input-global>
+
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="step" input-label="Étape" input-control="$ctrl.form_creation">
+                    <input type="text"  class="form-control" ng-model="$ctrl.createProject.etape" name="step" placeholder="Étape" value="step" />
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="comment" input-label="Commentaire" input-control="$ctrl.form_creation">
+                    <textarea type="text"  class="form-control" ng-model="$ctrl.createProject.commentaire" name="comment" placeholder="Commentaire" value="comment" height="50"></textarea>
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="customer" input-label="Nom du client" input-control="$ctrl.form_creationr">
+                    <select ng-model="$ctrl.createProject.ID_client"  class="form-control" ng-options="customer.id as (customer.id + ' ' + customer.firstname) for customer in $ctrl.listCustomers"></select>
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="user" input-label="Nom de l'utilisateur" input-control="$ctrl.form_creation">
+                    <select ng-model="$ctrl.createProject.ID_Employe"  class="form-control" ng-options="user.id as (user.id + ' ' + user.firstname) for user in $ctrl.listUsers"></select>
+                </input-global>
+                <input-global  input-class="col-lg-12 col-md-12 col-sm-12 col-xs-12" input-name="house" input-label="Maison" input-control="$ctrl.form_creation">
+                    <select ng-model="$ctrl.createProject.maison"  class="form-control" ng-options="maison as (maison.nom) for maison in $ctrl.listHouses"></select>
+                </input-global>
+                <div class="col-md-12" ng-show="$ctrl.createProject.maison.path_picture">
+                    <h2> Aperçu plan sélectionné : </h2>
+                    <img width="400" height="400" src="{{$ctrl.createProject.maison.path_picture}}" alt="plan" />
+                </div>
+                <div class="col-lg-offset-3 col-lg-9 col-md-offset-3 col-md-9 col-sm-offset-3 col-sm-9 col-xs-offset-3 col-xs-9 text-right">
+                    <button-global btn-class="btn btn-default" btn-function="$ctrl.send($ctrl.createProject)" btn-name="Valider"></button-global>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
