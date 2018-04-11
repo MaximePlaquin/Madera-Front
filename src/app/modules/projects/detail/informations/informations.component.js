@@ -39,7 +39,7 @@
             });
         }
 
-        /**
+         /**
          * @ngdoc function
          * @name app.cors.projects.tableProjectsCtrl#editProjects
          * @description edit projet

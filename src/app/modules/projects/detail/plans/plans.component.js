@@ -10,7 +10,7 @@
      * @param loggerService
      */
     /* @ngInject */
-    function projectsPlansCtrl(loggerService,houseService) {
+    function projectsPlansCtrl(loggerService,houseService,projectsService,checkInputService) {
         /*jshint validthis : true*/
         var $ctrl = this;
 
@@ -22,6 +22,20 @@
          * Appel initialisation tableau projets
          *
          */
+        $ctrl.send = send;
+
+        function send(value){
+            if(checkInputService.isUndefinedOrNull(value))
+                editMaison(value);
+                console.log('zizi');
+        }
+
+        function editMaison(value){
+            projectsService.EditProjects(value).then(function success() {
+            }, function error(error) {
+                loggerService.error('projects - edit ',error);
+            });
+        }
         getAllHouses();
 
         /**
@@ -44,7 +58,7 @@
 
     }
 
-    projectsPlansCtrl.$inject = ['loggerService','houseService'];
+    projectsPlansCtrl.$inject = ['loggerService','houseService','projectsService','checkInputService'];
 
     angular.module('app.cors.projectsDetail')
         .component('projectsPlans', {
@@ -52,7 +66,7 @@
             controller: projectsPlansCtrl,
             bindings:{
                 idProject:'=',
-                dataProject:'='
+                dataProject:'=',
             }
 
         });

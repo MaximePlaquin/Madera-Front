@@ -34,7 +34,8 @@
             GetAllProjects: GetAllProjects,
             DeleteProjects: DeleteProjects,
             GetProjects: GetProjects,
-            CreateProjects: CreateProjects
+            CreateProjects: CreateProjects,
+            EditProjects : EditProjects
         };
 
         /**
@@ -67,6 +68,7 @@
          *
          */
         function EditProjects(data) {
+            console.log(data);
             return restProjects.Update(data);
         }
 
